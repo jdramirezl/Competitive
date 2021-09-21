@@ -17,7 +17,7 @@ public:
         }
         
         long long num = 0;
-
+        
         while(x){
             int temp = x%10;
             x /= 10;

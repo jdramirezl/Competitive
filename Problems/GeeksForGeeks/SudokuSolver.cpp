@@ -1,9 +1,5 @@
 // https://practice.geeksforgeeks.org/problems/solve-the-sudoku/0
-<<<<<<< HEAD
 // Time complexity
-=======
-// Time complexity: Backtracking
->>>>>>> 63ea76935ce094a57801ee067e9717a10a020c28
 
 #include <iostream>
 #include <bits/stdc++.h>
