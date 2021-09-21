@@ -1,5 +1,5 @@
 class Solution:
-    def maxScore(self, cardPoints: List[int], k: int) -> int:
+    def maxScore(self, cardPoints: list[int], k: int) -> int:
         
         window, ind = 0, 0
         for i in range(k):
