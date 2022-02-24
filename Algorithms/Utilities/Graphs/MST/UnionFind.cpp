@@ -1,10 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 // Leader -> Node whose parent is itself
 const int MAXN = 100005;
-int p[MAXN];
+vector<int> p(MAXN);
 
 void initialize(int n){
     for (int i = 0; i <= n; ++i) p[i] = i; 
