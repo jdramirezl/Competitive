@@ -62,7 +62,7 @@ void transpose(vvi &transposed_graph, vvi &original_graph){
 void dfs(vvi &graph, vector<bool> &visited, int curr_node){
     if (visited[curr_node]) return;
     visited[curr_node] = true;
-
+    cout << curr_node << " ";
     for (int i = 0; i < graph[curr_node].size(); ++i){
         int next = graph[curr_node][i];
         dfs(graph, visited, next);
@@ -70,26 +70,26 @@ void dfs(vvi &graph, vector<bool> &visited, int curr_node){
 }
 
 void kosaraju(vvi &graph, vector<bool> &visited, int n_of_nodes){
-    vector<int> ans;
+    vector<int> stack;
 
     // Topo Sort
     for (int i = 0; i < graph.size(); ++i){
-        if (!visited[i]) dfs_topo(graph, ans, visited, i);
+        if (!visited[i]) dfs_topo(graph, stack, visited, i);
     }
 
-    reverse(all(ans));
+    reverse(all(stack));
     
     vvi transposed_graph(graph.size(), vi());
 
     transpose(transposed_graph, graph);
     
-    for (int i = 0; i < visited.size(); i++) visited[i] = false; 
-    bool pass = true;
+    fill(all(visited), false);
 
-    for (int i = 0; i < ans.size(); i++){
-        int curr_node = ans[i];
+    for (int i = 0; i < stack.size(); i++){
+        int curr_node = stack[i];
         if (visited[curr_node]) continue;
-        cout << "New Component: " << i << nl;
+        cout << "New Component: " << " ";
         dfs(transposed_graph, visited, curr_node);
+        cout << nl;
     }
 }
